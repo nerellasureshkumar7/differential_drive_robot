@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<robot>
+
+	<gazebo reference="base_link">
+		<material>Gazebo/Blue</material>
+	</gazebo>
+
+	<gazebo reference="imu_link">
+			<material>Gazebo/Orange</material>
+	</gazebo>
+
+	<gazebo reference="lidar_link">
+		<material>Gazebo/Orange</material>
+	</gazebo>
+
+	<gazebo reference="right_wheel_link">
+		<material>Gazebo/Black</material>
+	</gazebo>
+
+	<gazebo reference="left_wheel_link">
+		<material>Gazebo/Black</material>
+	</gazebo>
+
+	<gazebo reference="caster_link_front">
+		<material>Gazebo/Black</material>
+	</gazebo>
+
+	<gazebo reference="caster_link_back">
+		<material>Gazebo/Black</material>
+	</gazebo>
+
+	<!-- Differential Plugin -->
+	<gazebo>
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>50</updateRate>
+			<publishWheelJointState>true</publishWheelJointState>
+			<leftJoint>left_wheel_joint</leftJoint>
+			<rightJoint>right_wheel_joint</rightJoint>
+			<wheelSeparation>${base_link_y+wheel_width}</wheelSeparation>
+			<wheelDiameter>${2*wheel_radius}</wheelDiameter>
+			<torque>20</torque>
+			<publishWheelTF>false</publishWheelTF>
+			<publishOdomTF>true</publishOdomTF>
+			<legacyMode>false</legacyMode>
+			<publishTf>1</publishTf>
+			<commandTopic>cmd_vel</commandTopic>
+			<odometryTopic>odom</odometryTopic>
+			<odometryFrame>odom</odometryFrame>
+			<robotBaseFrame>base_link</robotBaseFrame>
+		</plugin>
+	</gazebo>
+
+		<!-- Imu Plugin -->
+	<gazebo reference="imu_link">
+		<gravity>true</gravity>
+		<sensor name="imu_sensor" type="imu">
+			<always_on>true</always_on>
+			<update_rate>100</update_rate>
+			<visualize>true</visualize>
+			<topic>__default_topic__</topic>
+			<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+				<topicName>imu</topicName>
+				<bodyName>imu_link</bodyName>
+				<updateRateHZ>10.0</updateRateHZ>
+				<gaussianNoise>0.0</gaussianNoise>
+				<xyzOffset>0 0 0</xyzOffset>
+				<rpyOffset>0 0 0</rpyOffset>
+				<frameName>imu_link</frameName>
+			</plugin>
+			<pose>0 0 0 0 0 0</pose>
+		</sensor>
+	</gazebo>
+
+		<!-- Lidar Plugin -->
+    <gazebo reference="lidar_link">
+        <sensor type="ray" name="head_hokuyo_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>25</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>0.25</resolution>
+                        <min_angle>-1.570796</min_angle>
+                        <max_angle>1.570796</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.5</min>
+                    <max>20.0</max>
+                    <resolution>0.25</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+                <topicName>scan</topicName>
+                <frameName>lidar_link</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+</robot>
