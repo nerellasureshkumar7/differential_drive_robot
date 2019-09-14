@@ -9,6 +9,11 @@
 	<arg name="debug" default="false"/>
 	<arg name="gui" default="true"/>
 
+	<!-- Starting position of robot in Gazebo -->
+	<arg name="x" default="10.5"/>
+	<arg name="y" default="6.5"/>
+	<arg name="z" default="0"/>
+
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 	    <arg name="world_name" value="$(arg world)"/>
@@ -21,15 +26,15 @@
 
   	<param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_robot_description)/urdf/diff_drive_robot.xacro' "/>
 
-	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 
   	   	  <!-- Spawn dd_robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
-     args="-urdf -param robot_description -model diff_drive_robo" />
+     args="-urdf -param robot_description -model diff_drive_robo -x $(arg x) -y $(arg y) -z $(arg z)" />
+<!-- 
+     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" required="true"/> -->
 
-    <!--  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" required="true"/>
- -->
 </launch>

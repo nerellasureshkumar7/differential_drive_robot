@@ -457,8 +457,8 @@
 <!--         <include>
       <uri>model://postbox</uri>
     </include> -->
-        <include>
-      <uri>model://bookshelf</uri>
-    </include>
+<!--         <include>
+      <uri>model://bus</uri>
+    </include> -->
   </world>
 </sdf>
