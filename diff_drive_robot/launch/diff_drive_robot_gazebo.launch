@@ -27,16 +27,16 @@
 	    <arg name="debug" value="$(arg debug)"/>
   	</include>
 
-<!--   	<param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_robot_description)/urdf/diff_drive_robot.xacro' "/> -->
+  	<param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_robot_description)/urdf/diff_drive_robot.xacro' "/>
 
-	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
-	<!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 
   	   	  <!-- Spawn dd_robot into Gazebo -->
-<!--   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
-     args="-urdf -param robot_description -model diff_drive_robo -x $(arg x) -y $(arg y) -z $(arg z)" /> -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+     args="-urdf -param robot_description -model diff_drive_robo -x $(arg x) -y $(arg y) -z $(arg z)" />
 <!-- 
      <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" required="true"/> -->
 
