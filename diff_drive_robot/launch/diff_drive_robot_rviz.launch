@@ -2,12 +2,21 @@
 <launch>
 
 	<!--Arguments for Gazebo_ros package  -->
-	<arg name="world" default="$(find diff_drive_robot)/worlds/diff_drive_robot.world"/>
+	<arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env0/diff_world_env0.world"/>
+	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env1/diff_world_env1.world"/> -->
+	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env2/diff_world_env2.world"/> -->
+	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_obstacles/diff_world_obstacles.world"/> -->
 	<arg name="paused" default="false"/>
 	<arg name="use_sim_time" default="true"/>
 	<arg name="headless" default="true"/>
 	<arg name="debug" default="false"/>
+			<!-- To turnON the GUI for Gazebo make it true -->
 	<arg name="gui" default="false"/>
+
+	<!-- Starting position of robot in Gazebo -->
+	<arg name="x" default="10.5"/>
+	<arg name="y" default="6.5"/>
+	<arg name="z" default="0"/>
 
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -21,14 +30,15 @@
 
   	<param name="robot_description" command="$(find xacro)/xacro.py '$(find diff_drive_robot_description)/urdf/diff_drive_robot.xacro' "/>
 
-	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
 
   	   	  <!-- Spawn dd_robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
-     args="-urdf -param robot_description -model diff_drive_robo" />
+     args="-urdf -param robot_description -model diff_drive_robo -x $(arg x) -y $(arg y) -z $(arg z)" />
 
-<node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" required="true"/>
+     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" />
+
 </launch>

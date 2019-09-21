@@ -125,155 +125,156 @@
 	</link>
 
 			<!-- Right_wheel link -->
-  <link name="${right_wheel}">
-    <!--origin xyz="0.1 -0.13 0.1" rpy="0 1.5707 1.5707"/-->
-    <collision name="right_wheel_collision">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </collision>
+	<link name="${right_wheel}">
+		<!--origin xyz="0.1 -0.13 0.1" rpy="0 1.5707 1.5707"/-->
+		<collision name="right_wheel_collision">
+		  <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+		  <geometry>
+		    	<cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+		  </geometry>
+		</collision>
 
-	<!-- Right_wheel_visual properties-->
-    <visual >
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </visual>
+		<!-- Right_wheel_visual properties-->
+	    <visual >
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+	      <geometry>
+	         	<cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+	      </geometry>
+	    </visual>
 
-	<!-- Right_wheel inertia properties -->
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <mass value="${wheel_mass}"/>
-	  <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
-	</inertial>
-  </link>
+		<!-- Right_wheel inertia properties -->
+	    <inertial>
+	      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+	      <mass value="${wheel_mass}"/>
+		  <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
+		</inertial>
+	</link>
 
 		<!-- Left_wheel link -->
-  <link name="${left_wheel}"> 
-     <collision name="left_wheel_collision">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </collision>
+	<link name="${left_wheel}"> 
+		<collision name="left_wheel_collision">
+		  	<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+				<geometry>
+					<cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+				</geometry>
+		</collision>
 
-	<!-- Left_wheel_visual properties-->
-    <visual >
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-         <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-      </geometry>
-    </visual>
+		<!-- Left_wheel_visual properties-->
+		<visual >
+		  	<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+		  	<geometry>
+		    	 <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+		  	</geometry>
+		</visual>
 
 	<!-- Leftt_wheel inertia properties -->
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
-      <mass value="${wheel_mass}"/>
-      <cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
-     </inertial>
-  </link>
+		<inertial>
+		  	<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+		  	<mass value="${wheel_mass}"/>
+		 	<cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
+		</inertial>
+	</link>
 
     		<!-- IMU link-->
-  <link name="${imu}">
+	<link name="${imu}">
 
-		<!-- Imu_link inertia properties-->
-	<inertial>
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<mass value="${imu_link_mass}"/>
-		 <box_inertia m="${imu_link_mass}" x="${imu_link_x}" y="${imu_link_y}" z="${imu_link_z}"/>
-	</inertial>
+			<!-- Imu_link inertia properties-->
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="${imu_link_mass}"/>
+			 <box_inertia m="${imu_link_mass}" x="${imu_link_x}" y="${imu_link_y}" z="${imu_link_z}"/>
+		</inertial>
 
-		<!-- Imu_link collision properties-->
-	<collision name="imu_collision">
-	 	<geometry>
-		 	<box size="${imu_link_x} ${imu_link_y} ${imu_link_z} "/>
-		</geometry>
-	</collision>
+			<!-- Imu_link collision properties-->
+		<collision name="imu_collision">
+		 	<geometry>
+			 	<box size="${imu_link_x} ${imu_link_y} ${imu_link_z} "/>
+			</geometry>
+		</collision>
 
-		<!-- Imu_link visual properties-->
-	<visual>
-	 	<origin xyz="0 0 0 " rpy="0 0 0 "/>
-		<geometry>
-			<box size="${imu_link_x} ${imu_link_y} ${imu_link_z} "/>
-		</geometry>
-	</visual>
- </link>
+			<!-- Imu_link visual properties-->
+		<visual>
+		 	<origin xyz="0 0 0 " rpy="0 0 0 "/>
+			<geometry>
+				<box size="${imu_link_x} ${imu_link_y} ${imu_link_z} "/>
+			</geometry>
+		</visual>
+	</link>
 
   		<!-- Lidar link -->
-  <link name="${lidar}"> 
-     <collision name="lidar_collision">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="${lidar_radius}" length="${lidar_width}"/>
-      </geometry>
-    </collision>
+	<link name="${lidar}"> 
+	    <collision name="lidar_collision">
+	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	      <geometry>
+	        	<cylinder radius="${lidar_radius}" length="${lidar_width}"/>
+	      </geometry>
+	    </collision>
 
-	<!-- Lidar properties-->
-    <visual >
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-         <cylinder radius="${lidar_radius}" length="${lidar_radius}"/>
-      </geometry>
-    </visual>
+		<!-- Lidar properties-->
+	    <visual >
+	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	      <geometry>
+	         <cylinder radius="${lidar_radius}" length="${lidar_radius}"/>
+	      </geometry>
+	    </visual>
 
-	<!-- Lidar inertia properties -->
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="${lidar_mass}"/>
-      <cylinder_inertia m="${lidar_mass}" r="${lidar_radius}" h="${lidar_width}"/>
-    </inertial>
-  </link>
+		<!-- Lidar inertia properties -->
+	    <inertial>
+	      <origin xyz="0 0 0" rpy="0 0 0"/>
+	      <mass value="${lidar_mass}"/>
+	      <cylinder_inertia m="${lidar_mass}" r="${lidar_radius}" h="${lidar_width}"/>
+	    </inertial>
+	</link>
 
 
   		<!-- Right_wheel Joint -->
-  <joint type="continuous" name="right_wheel_joint">
-    <origin xyz="0 -0.347 0" rpy="0 0 0"/>
-    <child link="${right_wheel}"/>
-    <parent link="${base_name}"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
+	<joint type="continuous" name="right_wheel_joint">
+	    <origin xyz="0 -0.347 0" rpy="0 0 0"/>
+	    <child link="${right_wheel}"/>
+	    <parent link="${base_name}"/>
+	    <axis xyz="0 1 0" rpy="0 0 0"/>
+	    <limit effort="100" velocity="100"/>
+	    <joint_properties damping="0.0" friction="0.0"/>
+	</joint>
   
 		<!-- Left_wheel Joint -->
-  <joint type="continuous" name="left_wheel_joint">
-    <origin xyz="0 0.347 0" rpy="0 0 0"/>
-    <child link="${left_wheel}"/>
-    <parent link="${base_name}"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
+	<joint type="continuous" name="left_wheel_joint">
+	    <origin xyz="0 0.347 0" rpy="0 0 0"/>
+	    <child link="${left_wheel}"/>
+	    <parent link="${base_name}"/>
+	    <axis xyz="0 1 0" rpy="0 0 0"/>
+	    <limit effort="100" velocity="100"/>
+	    <joint_properties damping="0.0" friction="0.0"/>
+	</joint>
 
-  <joint type="fixed" name="caster_front_joint">
-    <origin xyz="0.3 0 -0.1" rpy="0 0 0"/>
-    <child link="${caster_front}"/>
-    <parent link="${base_name}"/>
+		<!-- Front_caster_joint -->
+	<joint type="fixed" name="caster_front_joint">
+	    <origin xyz="0.3 0 -0.1" rpy="0 0 0"/>
+	    <child link="${caster_front}"/>
+	    <parent link="${base_name}"/>
+	</joint>
 
-  </joint>
-
-  <joint type="fixed" name="caster_back_joint">
-    <origin xyz="-0.3 0 -0.1" rpy="0 0 0"/>
-    <child link="${caster_back}"/>
-    <parent link="${base_name}"/>
-  </joint>
+		<!-- Back_caster_joint -->
+	<joint type="fixed" name="caster_back_joint">
+	    <origin xyz="-0.3 0 -0.1" rpy="0 0 0"/>
+	    <child link="${caster_back}"/>
+	    <parent link="${base_name}"/>
+	</joint>
 
 
     		<!-- Imu Joint -->
-  <joint type="fixed" name="imu_joint">
-    <origin xyz="0 0 ${base_link_z/2+imu_link_z/2}" rpy="0 0 0"/>
-    <child link="${imu}"/>
-    <parent link="${base_name}"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
+	<joint type="fixed" name="imu_joint">
+	    <origin xyz="0 0 ${base_link_z/2+imu_link_z/2}" rpy="0 0 0"/>
+	    <child link="${imu}"/>
+	    <parent link="${base_name}"/>
+	    <joint_properties damping="0.0" friction="0.0"/>
+	</joint>
 
     		<!-- Lidar Joint -->
-  <joint type="fixed" name="lidar_joint">
-    <origin xyz="0.3 0 ${base_link_z/2+lidar_radius/2}" rpy="0 0 0"/>
-    <child link="${lidar}"/>
-    <parent link="${base_name}"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
+	<joint type="fixed" name="lidar_joint">
+	    <origin xyz="0.3 0 ${base_link_z/2+lidar_radius/2}" rpy="0 0 0"/>
+	    <child link="${lidar}"/>
+	    <parent link="${base_name}"/>
+	    <joint_properties damping="0.0" friction="0.0"/>
+	</joint>
 </robot>

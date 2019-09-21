@@ -10,6 +10,7 @@
 	<arg name="use_sim_time" default="true"/>
 	<arg name="headless" default="true"/>
 	<arg name="debug" default="false"/>
+		<!-- To turnOFF the GUI for Gazebo make it false -->
 	<arg name="gui" default="true"/>
 
 	<!-- Starting position of robot in Gazebo -->

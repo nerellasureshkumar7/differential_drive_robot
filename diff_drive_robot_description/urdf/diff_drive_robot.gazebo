@@ -6,7 +6,7 @@
 	</gazebo>
 
 	<gazebo reference="imu_link">
-			<material>Gazebo/Orange</material>
+		<material>Gazebo/Orange</material>
 	</gazebo>
 
 	<gazebo reference="lidar_link">
