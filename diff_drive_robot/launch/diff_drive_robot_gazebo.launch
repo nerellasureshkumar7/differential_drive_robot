@@ -3,15 +3,15 @@
 
 	<!--Arguments for Gazebo_ros package  -->
 	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env0/diff_world_env0.world"/> -->
-	<arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env1/diff_world_env1.world"/>
+	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env1/diff_world_env1.world"/> -->
 	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_env2/diff_world_env2.world"/> -->
-	<!-- <arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_obstacles/diff_world_obstacles.world"/> -->
+	<arg name="world" default="$(find diff_drive_robot)/worlds/diff_world_obstacles/diff_world_obstacles.world"/>
 	<arg name="paused" default="false"/>
 	<arg name="use_sim_time" default="true"/>
 	<arg name="headless" default="true"/>
 	<arg name="debug" default="false"/>
 		<!-- To turnOFF the GUI for Gazebo make it false -->
-	<arg name="gui" default="true"/>
+	<arg name="gui" default="false"/>
 
 	<!-- Starting position of robot in Gazebo -->
 	<arg name="x" default="10.5"/>
@@ -38,9 +38,6 @@
   	   	  <!-- Spawn dd_robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
      args="-urdf -param robot_description -model diff_drive_robo -x $(arg x) -y $(arg y) -z $(arg z)" />
-
-       <node name="spawn_urdf1" pkg="gazebo_ros" type="spawn_model" output="screen"
-     args="-urdf -param robot_description -model diff_drive_robo -x 0 -y 0 -z 0" />
 <!-- 
      <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_drive_robot)/config/diff_drive_robot.rviz" required="true"/> -->
 
