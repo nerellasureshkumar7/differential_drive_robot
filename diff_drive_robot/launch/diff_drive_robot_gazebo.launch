@@ -11,7 +11,7 @@
 	<arg name="headless" default="true"/>
 	<arg name="debug" default="false"/>
 		<!-- To turnOFF the GUI for Gazebo make it false -->
-	<arg name="gui" default="false"/>
+	<arg name="gui" default="true"/>
 
 	<!-- Starting position of robot in Gazebo -->
 	<arg name="x" default="10.5"/>
